@@ -31,8 +31,7 @@ function addDataToLocalStorage(learn) {
   localStorage.setItem("learned", JSON.stringify(learned));
 }
 
-
-// this function is doing to 
+// this function is doing to
 function isAlreadyLearned(word) {
   const learned = getDataFromLocalStorage();
   return learned.some((learn) => learn.word === word);
@@ -44,7 +43,6 @@ function removeDataFromLocalStorage(word) {
   const updatedLearned = learned.filter((learn) => learn.word !== word);
   localStorage.setItem("learned", JSON.stringify(updatedLearned));
 }
-
 
 searchInput.addEventListener("keyup", function (e) {
   const searchTerm = e.target.value.trim().toLowerCase();
@@ -194,14 +192,12 @@ function showInDOM(selectedWord) {
           alert("You have already learned this word.");
         } else {
           addDataToLocalStorage(learnedWord);
-          alert("you are added to local storage")
+          alert("you are added to local storage");
         }
-      } else{
+      } else {
         removeDataFromLocalStorage(selectedWord.word);
         alert("you are removed from local Storage");
       }
     });
   });
 }
-
-
