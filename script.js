@@ -4,16 +4,17 @@ const selectInput = document.querySelector(".select-input");
 const listCard = document.querySelector(".list-card");
 const list = document.querySelector(".list");
 const showWords = document.querySelector(".showWords");
+const span = document.querySelector("span");
 
 let words;
 
 async function fetchWords() {
-  let response = await fetch("./main.json");
+  let response = await fetch('./main.json');
   let data = await response.json();
-
   words = data;
-
+  console.log(data);
   return words;
+  
 }
 
 fetchWords();
@@ -44,6 +45,8 @@ function removeDataFromLocalStorage(word) {
   localStorage.setItem("learned", JSON.stringify(updatedLearned));
 }
 
+
+// search input event listeners
 searchInput.addEventListener("keyup", function (e) {
   const searchTerm = e.target.value.trim().toLowerCase();
   list.innerHTML = "";
@@ -64,6 +67,10 @@ searchInput.addEventListener("keyup", function (e) {
             `;
       });
       listCard.classList.remove("d-none");
+      span.classList.add("d-none");
+    } else{
+
+      span.classList.remove("d-none");
     }
   }
 });

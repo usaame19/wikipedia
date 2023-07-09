@@ -10,9 +10,8 @@ function addDetailsToDOM() {
   const learned = getDataFromLocalStorage();
   let words = learned;
 
-  learned.forEach((word) => {
+  words.forEach((word) => {
     wordDetails.innerHTML += `
-
     <div class="details">
     <h2 class="word-title">${word.word}</h2>
     <h3 class="section-title">Definition</h3>
@@ -27,7 +26,7 @@ function addDetailsToDOM() {
     <h3 class="section-title">Antonyms</h3>
     <p class="section-content">${word.antonyms.join(", ")}</p>
 </div>
-    `;
+  `;
   });
 }
 addDetailsToDOM();
